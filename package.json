@@ -1,0 +1,12 @@
+{
+  "name": "aslegendbot",
+  "version": "1.0.0",
+  "description": "Bot Discord pour Aslegend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Eclixal",
+  "license": "ISC"
+}
