@@ -15,7 +15,7 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-const permissions = [
+const perms = [
     {
         id: '881464315234885653',
         type: 'ROLE',
@@ -34,7 +34,7 @@ client.on('ready', async () => {
     let t = await rest.get(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID));
     for (const tt of t) {
         const command = await client.guilds.cache.get(process.env.GUILD_ID)?.commands.fetch(tt.id);
-        await command.permissions.set({ permissions });
+        await command.permissions.set({ perms });
     }
 
     const stock = new MessageEmbed()
