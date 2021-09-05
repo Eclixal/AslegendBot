@@ -31,11 +31,11 @@ const perms = [
 client.on('ready', async () => {
     client.user.setActivity('Travail', { type: 'COMPETING' });
 
-    let t = await rest.get(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID));
-    for (const tt of t) {
-        const command = await client.guilds.cache.get(process.env.GUILD_ID)?.commands.fetch(tt.id);
-        await command.permissions.set({ perms });
-    }
+    // let t = await rest.get(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID));
+    // for (const tt of t) {
+    //     const command = await client.guilds.cache.get(process.env.GUILD_ID)?.commands.fetch(tt.id);
+    //     await command.permissions.set({ perms });
+    // }
 
     const stock = new MessageEmbed()
         .setColor('#bbff00')
