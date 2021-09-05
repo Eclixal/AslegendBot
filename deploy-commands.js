@@ -8,12 +8,6 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    command.data.permissions = [{
-        id: '287352359074660353',
-        type: 'ROLE',
-        permission: true,
-    }];
-    console.log(command.data.toJSON())
     commands.push(command.data.toJSON());
 }
 
