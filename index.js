@@ -97,7 +97,9 @@ client.on('ready', async () => {
     // openCloseChannel.send({ embeds: [open] });
     // openCloseChannel.send({ embeds: [close] });
 
-    console.log((await (await client.guilds.fetch(process.env.GUILD_ID)).roles.fetch(process.env.ROLE)).members)
+    let guild = await client.guilds.fetch(process.env.GUILD_ID);
+    let role = await guild.roles.fetch(process.env.ROLE);
+    console.log(role)
 
     if (await client.guilds.cache.get(process.env.GUILD_ID)?.roles.cache.get(process.env.ROLE)?.members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
