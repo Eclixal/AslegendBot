@@ -97,7 +97,7 @@ client.on('ready', async () => {
     // openCloseChannel.send({ embeds: [open] });
     // openCloseChannel.send({ embeds: [close] });
 
-    if (client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
+    if (await client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -107,7 +107,7 @@ client.on('ready', async () => {
             embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
             client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
         }
-    } else if (client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
+    } else if (await client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
