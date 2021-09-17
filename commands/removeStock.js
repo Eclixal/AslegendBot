@@ -17,7 +17,8 @@ module.exports = {
                 .addChoice('Bombe de peinture', 'Bombe de peinture')
                 .addChoice('Liqueur de Stricker', 'Liqueur de Stricker')
                 .addChoice('Boisson', 'Boisson')
-                .addChoice('Nourriture', 'Nourriture'))
+                .addChoice('Nourriture', 'Nourriture')
+                .addChoice('Trousse de soin', 'Trousse de soin'))
         .addIntegerOption(option => option.setName('stock').setRequired(true).setDescription('Entrer un nombre a enlever')),
     async execute(interaction) {
         console.log(interaction.options)
