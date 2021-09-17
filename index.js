@@ -37,44 +37,44 @@ client.on('ready', async () => {
     //     await command.permissions.set({ perms });
     // }
 
-    const stock = new MessageEmbed()
-        .setColor('#bbff00')
-        .setTitle('Gestion des stocks')
-        .addFields(
-            {
-                "name": `Roue de secours`,
-                "value": `0`
-            },
-            {
-                "name": `Trousse à outils`,
-                "value": `0`
-            },
-            {
-                "name": `Bidon d'essence`,
-                "value": `0`
-            },
-            {
-                "name": `Moteur`,
-                "value": `0`
-            },
-            {
-                "name": `Bombe de peinture`,
-                "value": `0`
-            },
-            {
-                "name": `Liqueur de Stricker`,
-                "value": `0`
-            },
-            {
-                "name": `Boisson`,
-                "value": `0`
-            },
-            {
-                "name": `Nourriture`,
-                "value": `0`
-            }
-        )
-        .setTimestamp()
+    // const stock = new MessageEmbed()
+    //     .setColor('#bbff00')
+    //     .setTitle('Gestion des stocks')
+    //     .addFields(
+    //         {
+    //             "name": `Roue de secours`,
+    //             "value": `0`
+    //         },
+    //         {
+    //             "name": `Trousse à outils`,
+    //             "value": `0`
+    //         },
+    //         {
+    //             "name": `Bidon d'essence`,
+    //             "value": `0`
+    //         },
+    //         {
+    //             "name": `Moteur`,
+    //             "value": `0`
+    //         },
+    //         {
+    //             "name": `Bombe de peinture`,
+    //             "value": `0`
+    //         },
+    //         {
+    //             "name": `Liqueur de Stricker`,
+    //             "value": `0`
+    //         },
+    //         {
+    //             "name": `Boisson`,
+    //             "value": `0`
+    //         },
+    //         {
+    //             "name": `Nourriture`,
+    //             "value": `0`
+    //         }
+    //     )
+    //     .setTimestamp()
 
     const channel = client.channels.cache.get('876110522037194812');
     // channel.send({ embeds: [stock] });
@@ -97,7 +97,7 @@ client.on('ready', async () => {
     // openCloseChannel.send({ embeds: [open] });
     // openCloseChannel.send({ embeds: [close] });
 
-    if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
+    if (await client.guilds.cache.get(process.env.GUILD_ID)?.roles.cache.get(process.env.ROLE)?.members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -107,7 +107,7 @@ client.on('ready', async () => {
             embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
             client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
         }
-    } else if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
+    } else if (await client.guilds.cache.get(process.env.GUILD_ID)?.roles.cache.get(process.env.ROLE)?.members.size === 0) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -123,7 +123,7 @@ client.on('ready', async () => {
 });
 
 client.on('guildMemberUpdate', async (oldMember, newMember) => {
-    if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
+    if (await client.guilds.cache.get(process.env.GUILD_ID)?.roles.cache.get(process.env.ROLE)?.members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -133,7 +133,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
             embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
             client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
         }
-    } else if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
+    } else if (await client.guilds.cache.get(process.env.GUILD_ID)?.roles.cache.get(process.env.ROLE)?.members.size === 0) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -144,6 +144,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
             client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
         }
     }
+
 })
 
 client.on('interactionCreate', async interaction => {
