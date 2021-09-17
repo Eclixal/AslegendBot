@@ -21,7 +21,6 @@ module.exports = {
                 .addChoice('Trousse de soin', 'Trousse de soin'))
         .addIntegerOption(option => option.setName('stock').setRequired(true).setDescription('Entrer un nombre a ajouter')),
     async execute(interaction) {
-        console.log(interaction.options)
         let reply = await interaction.reply({ content: 'Ajout dans le stock avec succès !', ephemeral: false });
         await wait(5000);
         await interaction.deleteReply();
