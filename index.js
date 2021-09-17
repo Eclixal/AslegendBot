@@ -97,33 +97,7 @@ client.on('ready', async () => {
     // openCloseChannel.send({ embeds: [open] });
     // openCloseChannel.send({ embeds: [close] });
 
-    // if (client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
-    //     const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
-    //     const embed = embedMessage.embeds[0];
-    //     if (embed.title === 'Le mécano est fermé !') {
-    //         embed.setTimestamp()
-    //         embed.setColor("#0aff00")
-    //         embed.setTitle("Le mécano est ouvert !")
-    //         embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
-    //         client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
-    //     }
-    // } else if (client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
-    //     const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
-    //     const embed = embedMessage.embeds[0];
-    //     if (embed.title === 'Le mécano est fermé !') {
-    //         embed.setTimestamp()
-    //         embed.setColor("#ff0000")
-    //         embed.setTitle("Le mécano est ouvert !")
-    //         embed.setImage("https://cdn.discordapp.com/attachments/876183553564606494/881841865320726548/Paleto_Repair_Ouvert.jpg")
-    //         client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
-    //     }
-    // }
-
-    console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('guildMemberUpdate', async (oldMember, newMember) => {
-    if (client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
+    if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -133,7 +107,33 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
             embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
             client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
         }
-    } else if (client.guilds.cache.get(process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
+    } else if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
+        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
+        const embed = embedMessage.embeds[0];
+        if (embed.title === 'Le mécano est fermé !') {
+            embed.setTimestamp()
+            embed.setColor("#ff0000")
+            embed.setTitle("Le mécano est ouvert !")
+            embed.setImage("https://cdn.discordapp.com/attachments/876183553564606494/881841865320726548/Paleto_Repair_Ouvert.jpg")
+            client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
+        }
+    }
+
+    console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('guildMemberUpdate', async (oldMember, newMember) => {
+    if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size >= 1) {
+        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
+        const embed = embedMessage.embeds[0];
+        if (embed.title === 'Le mécano est fermé !') {
+            embed.setTimestamp()
+            embed.setColor("#0aff00")
+            embed.setTitle("Le mécano est ouvert !")
+            embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
+            client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
+        }
+    } else if (client.guilds.cache.find(g => g.id === process.env.GUILD_ID).roles.cache.get(process.env.ROLE).members.size === 0) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
