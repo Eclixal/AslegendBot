@@ -81,11 +81,11 @@ client.on('ready', async () => {
 
     // Open / close
 
-    // const open = new MessageEmbed()
-    //     .setColor('#0aff00')
-    //     .setTitle('Le mécano est ouvert !')
-    //     .setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
-    //     .setTimestamp()
+    const open = new MessageEmbed()
+        .setColor('#0aff00')
+        .setTitle('Le mécano est ouvert !')
+        .setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
+        .setTimestamp()
     //
     // const close = new MessageEmbed()
     //     .setColor('#ff0000')
@@ -93,8 +93,8 @@ client.on('ready', async () => {
     //     .setImage("https://cdn.discordapp.com/attachments/876183553564606494/881841865320726548/Paleto_Repair_Ouvert.jpg")
     //     .setTimestamp()
     //
-    // const openCloseChannel = client.channels.cache.get('876127166490886245');
-    // openCloseChannel.send({ embeds: [open] });
+    const openCloseChannel = client.channels.cache.get('876127166490886245');
+    openCloseChannel.send({ embeds: [open] });
     // openCloseChannel.send({ embeds: [close] });
 
     let guild = await client.guilds.fetch(process.env.GUILD_ID);
