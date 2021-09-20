@@ -126,7 +126,7 @@ client.on('ready', async () => {
 
 client.on('guildMemberUpdate', async (oldMember, newMember) => {
     let guild = await client.guilds.fetch(process.env.GUILD_ID);
-    let role = await guild.roles.fetch(process.env.GUILD_ID);
+    let role = await guild.roles.fetch(process.env.ROLE);
     if (role.members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
