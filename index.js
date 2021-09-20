@@ -141,7 +141,6 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
     } else if (role.members.size === 0) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
-        console.log(embed.title)
         if (embed.title === 'Le mécano est ouvert !') {
             embed.setTimestamp()
             embed.setColor("#ff0000")
