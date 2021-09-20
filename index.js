@@ -81,11 +81,11 @@ client.on('ready', async () => {
 
     // Open / close
 
-    const open = new MessageEmbed()
-        .setColor('#0aff00')
-        .setTitle('Le mécano est ouvert !')
-        .setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
-        .setTimestamp()
+    // const open = new MessageEmbed()
+    //     .setColor('#0aff00')
+    //     .setTitle('Le mécano est ouvert !')
+    //     .setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
+    //     .setTimestamp()
     //
     // const close = new MessageEmbed()
     //     .setColor('#ff0000')
@@ -93,34 +93,33 @@ client.on('ready', async () => {
     //     .setImage("https://cdn.discordapp.com/attachments/876183553564606494/881841865320726548/Paleto_Repair_Ouvert.jpg")
     //     .setTimestamp()
     //
-    const openCloseChannel = client.channels.cache.get('876127166490886245');
-    openCloseChannel.send({ embeds: [open] });
+    // const openCloseChannel = client.channels.cache.get('876127166490886245');
+    // openCloseChannel.send({ embeds: [open] });
     // openCloseChannel.send({ embeds: [close] });
 
     let guild = await client.guilds.fetch(process.env.GUILD_ID);
     let role = await guild.roles.fetch(process.env.ROLE);
-    console.log(role.members.size)
-    // if (role.members.size >= 1) {
-    //     const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
-    //     const embed = embedMessage.embeds[0];
-    //     if (embed.title === 'Le mécano est fermé !') {
-    //         embed.setTimestamp()
-    //         embed.setColor("#0aff00")
-    //         embed.setTitle("Le mécano est ouvert !")
-    //         embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
-    //         client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
-    //     }
-    // } else if (role.members.size === 0) {
-    //     const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
-    //     const embed = embedMessage.embeds[0];
-    //     if (embed.title === 'Le mécano est fermé !') {
-    //         embed.setTimestamp()
-    //         embed.setColor("#ff0000")
-    //         embed.setTitle("Le mécano est ouvert !")
-    //         embed.setImage("https://cdn.discordapp.com/attachments/876183553564606494/881841865320726548/Paleto_Repair_Ouvert.jpg")
-    //         client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
-    //     }
-    // }
+    if (role.members.size >= 1) {
+        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
+        const embed = embedMessage.embeds[0];
+        if (embed.title === 'Le mécano est fermé !') {
+            embed.setTimestamp()
+            embed.setColor("#0aff00")
+            embed.setTitle("Le mécano est ouvert !")
+            embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
+            client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200').then(message => message.edit({ embeds: [embed] }))
+        }
+    } else if (role.members.size === 0) {
+        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
+        const embed = embedMessage.embeds[0];
+        if (embed.title === 'Le mécano est fermé !') {
+            embed.setTimestamp()
+            embed.setColor("#ff0000")
+            embed.setTitle("Le mécano est ouvert !")
+            embed.setImage("https://cdn.discordapp.com/attachments/876183553564606494/881841865320726548/Paleto_Repair_Ouvert.jpg")
+            client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200').then(message => message.edit({ embeds: [embed] }))
+        }
+    }
 
     console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -129,24 +128,24 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
     let guild = await client.guilds.fetch(process.env.GUILD_ID);
     let role = await guild.roles.fetch(process.env.GUILD_ID);
     if (role.members.size >= 1) {
-        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
+        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
             embed.setTimestamp()
             embed.setColor("#0aff00")
             embed.setTitle("Le mécano est ouvert !")
             embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
-            client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
+            client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200').then(message => message.edit({ embeds: [embed] }))
         }
     } else if (role.members.size === 0) {
-        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
+        const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
             embed.setTimestamp()
             embed.setColor("#ff0000")
             embed.setTitle("Le mécano est ouvert !")
             embed.setImage("https://cdn.discordapp.com/attachments/876183553564606494/881841865320726548/Paleto_Repair_Ouvert.jpg")
-            client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788').then(message => message.edit({ embeds: [embed] }))
+            client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200').then(message => message.edit({ embeds: [embed] }))
         }
     }
 
