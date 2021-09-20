@@ -99,7 +99,7 @@ client.on('ready', async () => {
 
     let guild = await client.guilds.fetch(process.env.GUILD_ID);
     let role = await guild.roles.fetch(process.env.ROLE);
-    if (role.members.size >= 1) {
+    if (role.members.size === 0) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -109,7 +109,7 @@ client.on('ready', async () => {
             embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
             client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200').then(message => message.edit({ embeds: [embed] }))
         }
-    } else if (role.members.size === 0) {
+    } else if (role.members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -127,7 +127,7 @@ client.on('ready', async () => {
 client.on('guildMemberUpdate', async (oldMember, newMember) => {
     let guild = await client.guilds.fetch(process.env.GUILD_ID);
     let role = await guild.roles.fetch(process.env.ROLE);
-    if (role.members.size >= 1) {
+    if (role.members.size === 0) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
@@ -137,7 +137,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
             embed.setImage("https://media.discordapp.net/attachments/876183553564606494/881841874145525811/Paleto_Repair_Ouvert1.jpg")
             client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200').then(message => message.edit({ embeds: [embed] }))
         }
-    } else if (role.members.size === 0) {
+    } else if (role.members.size >= 1) {
         const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('889586366818693200');
         const embed = embedMessage.embeds[0];
         if (embed.title === 'Le mécano est fermé !') {
