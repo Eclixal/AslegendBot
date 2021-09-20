@@ -97,8 +97,7 @@ client.on('ready', async () => {
     // openCloseChannel.send({ embeds: [open] });
     // openCloseChannel.send({ embeds: [close] });
 
-    let guild = await client.guilds.fetch(process.env.GUILD_ID);
-    let role = await guild.roles.fetch(process.env.ROLE);
+    let role = await getRole()
     console.log(role.members.size)
     // if (role.members.size >= 1) {
     //     const embedMessage = await client.channels.cache.get('876127166490886245').messages.fetch('888472282287177788');
@@ -124,6 +123,12 @@ client.on('ready', async () => {
 
     console.log(`Logged in as ${client.user.tag}!`);
 });
+
+async function getRole() {
+    let guild = await client.guilds.fetch(process.env.GUILD_ID);
+    let role = await guild.roles.fetch(process.env.ROLE);
+    return role;
+}
 
 client.on('guildMemberUpdate', async (oldMember, newMember) => {
     let guild = await client.guilds.fetch(process.env.GUILD_ID);
