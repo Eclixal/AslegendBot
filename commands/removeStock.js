@@ -10,7 +10,10 @@ module.exports = {
             option.setName('stockage')
                 .setDescription('Le type de stockage a modifier')
                 .setRequired(true)
-                .addChoice('Kit de lavage', 'Kit de lavage'))
+                .addChoice('Moteur', 'Moteur')
+                .addChoice('Roue de secours', 'Roue de secours')
+                .addChoice('Trousse à outils', 'Trousse à outils')
+                .addChoice('Liqueur', 'Liqueur'))
         .addIntegerOption(option => option.setName('stock').setRequired(true).setDescription('Entrer un nombre a enlever')),
     async execute(interaction) {
         console.log(interaction.options)
