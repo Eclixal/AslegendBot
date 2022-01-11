@@ -30,7 +30,7 @@ client1.on('interactionCreate', async interaction => {
             let pos = (embed.fields.findIndex(t => t.name === interaction.options.getString('stockage')))
             embed.fields[pos] = { name: interaction.options.getString('stockage'), value: (parseInt(embed.fields[pos].value) + parseInt(interaction.options.getInteger('stock'))).toString()}
             client1.channels.cache.get('929764255203487755').messages.fetch(process.env.C2_MESSAGE).then(message => message.edit({ embeds: [embed] }))
-            client1.channels.cache.get("929774715965440070").send(interaction.user.username + ' > add-stock type:' + interaction.options.getString('stockage') + " nb + :" + (parseInt(interaction.options.getInteger('stock'))) + ' - total : ' + (parseInt(embed.fields[pos].value) + parseInt(interaction.options.getInteger('stock'))));
+            client1.channels.cache.get("929774715965440070").send(interaction.user.username + ' > add-stock type: ' + interaction.options.getString('stockage') + " nb + :" + (parseInt(interaction.options.getInteger('stock'))) + ' - total : ' + (parseInt(embed.fields[pos].value) + parseInt(interaction.options.getInteger('stock'))));
         } else if (interaction.commandName === 'remove-stock') {
             const embedMessage = await client1.channels.cache.get('929764255203487755').messages.fetch(process.env.C2_MESSAGE);
             const embed = embedMessage.embeds[0];
@@ -79,7 +79,7 @@ client.on('interactionCreate', async interaction => {
             let pos = (embed.fields.findIndex(t => t.name === interaction.options.getString('stockage')))
             embed.fields[pos] = { name: interaction.options.getString('stockage'), value: (parseInt(embed.fields[pos].value) + parseInt(interaction.options.getInteger('stock'))).toString()}
             client.channels.cache.get('925755087320678460').messages.fetch(process.env.MESSAGE).then(message => message.edit({ embeds: [embed] }))
-            client.channels.cache.get("930216477733322763").send(interaction.user.username + ' > add-stock type:' + interaction.options.getString('stockage') + " nb + :" + (parseInt(interaction.options.getInteger('stock'))) + ' - total : ' + (parseInt(embed.fields[pos].value) + parseInt(interaction.options.getInteger('stock'))));
+            client.channels.cache.get("930216477733322763").send(interaction.user.username + ' > add-stock type: ' + interaction.options.getString('stockage') + " nb + :" + (parseInt(interaction.options.getInteger('stock'))) + ' - total : ' + (parseInt(embed.fields[pos].value) + parseInt(interaction.options.getInteger('stock'))));
         } else if (interaction.commandName === 'remove-stock') {
             const embedMessage = await client.channels.cache.get('925755087320678460').messages.fetch(process.env.MESSAGE);
             const embed = embedMessage.embeds[0];
